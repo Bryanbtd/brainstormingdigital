@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: bryanbtd/brainstormingdigital  # Asegúrate que sea TU usuario
+  branch: main
+media_folder: "images"
+public_folder: "/images"
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "index.html"  # ¡Verifica que tu archivo se llame EXACTAMENTE así!
+        fields:
+          - { name: "title", label: "Título", widget: "string" }
+          - { name: "content", label: "Contenido", widget: "markdown" }
