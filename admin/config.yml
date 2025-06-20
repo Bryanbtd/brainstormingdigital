@@ -1,15 +1,16 @@
 backend:
   name: github
-  repo: bryanbtd/brainstormingdigital  # Tu usuario/repo
-  branch: main  # Asegúrate de que sea "main" o "master"
-media_folder: "images"  # Carpeta donde subirás imágenes
+  repo: bryanbtd/brainstormingdigital
+  branch: main
+media_folder: "images"  # Sube imágenes a esta carpeta
+public_folder: "/images"  # Ruta pública para las imágenes
 collections:
   - name: "pages"
     label: "Pages"
     files:
       - name: "home"
         label: "Home Page"
-        file: "index.md"  # O "index.html" si usas HTML
+        file: "index.html"  # Archivo HTML a editar
         fields:
           - { name: "title", label: "Título", widget: "string" }
-          - { name: "body", label: "Contenido", widget: "markdown" }
+          - { name: "content", label: "Contenido", widget: "markdown" }
