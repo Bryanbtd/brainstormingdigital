@@ -1,107 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title | default: "Brainstorming Digital | Agencia de Performance Marketing" }}</title>
-    <meta name="description" content="{{ meta_description | default: "Especialistas en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en resultados medibles para tu negocio" }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2A5CFF;
-            --secondary: #FFD700;
-            --dark: #0A0F2B;
-            --light: #F8F9FF;
-            --gray: #6B7280;
-            --success: #00C853;
-            --font-title: 'Space Grotesk', sans-serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        /* ... (Mantén TODO tu CSS existente igual) ... */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brainstorming Digital</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #f4f4f4;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .logo span {
+      color: #0066cc;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #0066cc;
+      color: white;
+    }
+    .hero h1 span {
+      color: #ffcc00;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn-primary {
+      background: #ffcc00;
+      color: #333;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header (Estático) -->
-    <header id="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">{{ header.logo_text | default: "BRAINSTORMING" }} <span>{{ header.logo_highlight | default: "DIGITAL" }}</span></a>
-                <div class="nav-links">
-                    <a href="#services">{{ navigation.service_link | default: "Servicios" }}</a>
-                    <a href="#process">{{ navigation.process_link | default: "Proceso" }}</a>
-                    <a href="#cases">{{ navigation.cases_link | default: "Casos" }}</a>
-                    <a href="#testimonials">{{ navigation.testimonials_link | default: "Testimonios" }}</a>
-                    <a href="#contact">{{ navigation.contact_link | default: "Contacto" }}</a>
-                </div>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="logo">
+      BRAINSTORMING <span>DIGITAL</span>
+    </div>
+    <nav>
+      <a href="#">Servicios</a>
+      <a href="#">Proceso</a>
+      <a href="#">Casos de éxito</a>
+      <a href="#">Testimonios</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
 
-    <!-- Hero Section (Editable) -->
-    <section class="hero" style="background: linear-gradient(rgba(10, 15, 43, 0.85), rgba(10, 15, 43, 0.9)), url('{{ hero.background_image | default: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" }}') no-repeat center center/cover;">
-        <div class="container">
-            <div class="hero-content">
-                <h1>{{ hero.title | default: "De las ideas a los" }} <span>{{ hero.title_highlight | default: "resultados" }}</span></h1>
-                <p>{{ hero.description | default: "Somos Brainstorming Digital, tu agencia de Performance Marketing especializada en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en estrategias que generan ventas reales." }}</p>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn btn-primary">{{ hero.primary_button | default: "¡Quiero vender más!" }}</a>
-                    <a href="#services" class="btn btn-secondary">{{ hero.secondary_button | default: "Nuestros servicios" }}</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="hero">
+    <h1>De las ideas a los <span>resultados</span></h1>
+    <p>Somos Brainstorming Digital, tu agencia de Performance Marketing especializada en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en estrategias que generan ventas reales.</p>
+    <a href="#" class="btn btn-primary">¡Quiero vender más!</a>
+    <a href="#" class="btn btn-secondary">Nuestros servicios</a>
+  </section>
 
-    <!-- Servicios (Títulos editables, contenido estático) -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>{{ services.title | default: "Nuestros Servicios" }}</h2>
-                <p>{{ services.subtitle | default: "Especializados en campañas de alto rendimiento que generan ROI medible para tu negocio." }}</p>
-            </div>
-            <div class="services-grid">
-                <!-- ... (Mantén tus 3 service-card originales) ... -->
-            </div>
-        </div>
-    </section>
+  <section class="services">
+    <h2>Nuestros Servicios</h2>
+    <p>Especializados en campañas de alto rendimiento que generan ROI medible para tu negocio.</p>
+  </section>
 
-    <!-- ... (Mantén todas tus otras secciones igual) ... -->
-
-    <!-- Footer (Editables básicos) -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>{{ footer.title | default: "Brainstorming Digital" }}</h3>
-                    <p>{{ footer.description | default: "Especialistas en Performance Marketing con enfoque en resultados medibles y crecimiento sostenible." }}</p>
-                    <!-- ... (redes sociales estáticas) ... -->
-                </div>
-                <!-- ... (otros footer-col estáticos) ... -->
-            </div>
-            <div class="footer-bottom">
-                <p>{{ footer.copyright | default: "&copy; 2025 Brainstorming Digital. Todos los derechos reservados." }}</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp Float (Editable) -->
-    <a href="{{ contact.whatsapp_link | default: "http://wa.me/5491170601096" }}" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Mantén TODOS tus scripts originales -->
-    <script>
-        // ... (todo tu JavaScript actual) ...
-    </script>
+  <footer>
+    <h3>Brainstorming Digital</h3>
+    <p>Especialistas en Performance Marketing con enfoque en resultados medibles y crecimiento sostenible.</p>
+    <p>© 2025 Brainstorming Digital. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
