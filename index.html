@@ -273,6 +273,133 @@
             margin-bottom: 20px;
         }
 
+        /* Proceso */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .process-steps:before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background-color: var(--primary);
+            z-index: 1;
+        }
+
+        .step {
+            width: 22%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-icon {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-size: 30px;
+            color: var(--primary);
+            border: 3px solid var(--primary);
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .step p {
+            color: var(--text-light);
+        }
+
+        /* Testimonios */
+        .testimonials {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .testimonials .section-title h2,
+        .testimonials .section-title p {
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-text:before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .author-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
         /* Formulario de contacto */
         .contact-form {
             background-color: white;
@@ -415,7 +542,70 @@
             transform: scale(1.1);
         }
 
+        /* Menú flotante inteligente */
+        .quick-access {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 990;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quick-access-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .quick-access-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+            background-color: #1D4ED8;
+        }
+
+        .quick-access-btn .tooltip {
+            position: absolute;
+            right: 60px;
+            background-color: var(--dark);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .quick-access-btn:hover .tooltip {
+            opacity: 1;
+            right: 65px;
+        }
+
         /* Responsive */
+        @media (max-width: 992px) {
+            .process-steps:before {
+                display: none;
+            }
+            
+            .step {
+                width: 48%;
+                margin-bottom: 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -440,6 +630,14 @@
             .section-title h2 {
                 font-size: 30px;
             }
+            
+            .step {
+                width: 100%;
+            }
+            
+            .quick-access {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -452,6 +650,7 @@
                 <div class="nav-links">
                     <a href="#services">Servicios</a>
                     <a href="#process">Proceso</a>
+                    <a href="#testimonials">Testimonios</a>
                     <a href="#cases">Casos</a>
                     <a href="#contact">Contacto</a>
                 </div>
@@ -461,6 +660,26 @@
             </nav>
         </div>
     </header>
+
+    <!-- Menú flotante inteligente -->
+    <div class="quick-access">
+        <a href="#contact" class="quick-access-btn" aria-label="Contacto">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">Contacto</span>
+        </a>
+        <a href="#process" class="quick-access-btn" aria-label="Nuestro proceso">
+            <i class="fas fa-chart-line"></i>
+            <span class="tooltip">Proceso</span>
+        </a>
+        <a href="#testimonials" class="quick-access-btn" aria-label="Testimonios">
+            <i class="fas fa-quote-left"></i>
+            <span class="tooltip">Testimonios</span>
+        </a>
+        <a href="https://wa.me/5491170601096" class="quick-access-btn" aria-label="WhatsApp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">WhatsApp</span>
+        </a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -519,27 +738,130 @@
                 <h2>Nuestro Proceso</h2>
                 <p>Metodología probada que garantiza el éxito de tus campañas de marketing digital.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card" style="text-align: center;">
-                    <div class="service-icon" style="margin: 0 auto 20px;">
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">
                         <i class="fas fa-search"></i>
                     </div>
                     <h3>Análisis</h3>
                     <p>Estudiamos tu mercado, competencia y objetivos para crear una estrategia personalizada.</p>
                 </div>
-                <div class="service-card" style="text-align: center;">
-                    <div class="service-icon" style="margin: 0 auto 20px;">
+                <div class="step">
+                    <div class="step-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>Implementación</h3>
                     <p>Desarrollamos campañas optimizadas desde el primer día con creativos de alto impacto.</p>
                 </div>
-                <div class="service-card" style="text-align: center;">
-                    <div class="service-icon" style="margin: 0 auto 20px;">
+                <div class="step">
+                    <div class="step-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Optimización</h3>
                     <p>Ajustamos en tiempo real basados en datos para maximizar tu retorno de inversión.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Resultados</h3>
+                    <p>Reportes claros con métricas de crecimiento y rentabilidad de tus campañas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Empresas que han escalado su negocio con nuestras estrategias</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Brainstorming Digital transformó completamente nuestros resultados en Meta Ads. En 3 meses aumentamos nuestras ventas un 150% con la misma inversión.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="María López">
+                        </div>
+                        <div class="author-info">
+                            <h4>María López</h4>
+                            <p>CEO, ModaTrend</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>El equipo entendió perfectamente nuestro mercado y creó campañas en TikTok que nos dieron un ROI del 300%. ¡Increíble!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Méndez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Carlos Méndez</h4>
+                            <p>Director Marketing, TechSolutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Después de trabajar con varias agencias, por fin encontramos profesionales que realmente entienden el performance marketing. Sus reportes son impecables.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Rodríguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana Rodríguez</h4>
+                            <p>CMO, Salud360</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casos de éxito -->
+    <section class="section" id="cases">
+        <div class="container">
+            <div class="section-title">
+                <h2>Casos de Éxito</h2>
+                <p>Resultados reales que hemos generado para nuestros clientes</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 20px; background-color: rgba(16, 185, 129, 0.1); color: var(--success);">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>E-commerce de Moda</h3>
+                    <p>Incrementamos las ventas un 220% en 4 meses con estrategias combinadas de Meta Ads y Google Shopping.</p>
+                    <div style="margin-top: 15px; color: var(--success); font-weight: 600;">
+                        ROI: 320%
+                    </div>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 20px; background-color: rgba(37, 99, 235, 0.1); color: var(--primary);">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Financiera</h3>
+                    <p>Redujimos el costo por instalación en un 40% mientras aumentamos las descargas en un 500%.</p>
+                    <div style="margin-top: 15px; color: var(--primary); font-weight: 600;">
+                        +50K descargas
+                    </div>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 20px; background-color: rgba(124, 58, 237, 0.1); color: var(--accent);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Plataforma Educativa</h3>
+                    <p>Generamos 1,200 leads calificados por mes con un costo por lead 60% menor al promedio del mercado.</p>
+                    <div style="margin-top: 15px; color: var(--accent); font-weight: 600;">
+                        +5K estudiantes
+                    </div>
                 </div>
             </div>
         </div>
