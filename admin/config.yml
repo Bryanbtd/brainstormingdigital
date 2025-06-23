@@ -1,72 +1,17 @@
 backend:
-  name: github
-  repo: bryanbtd/brainstormingdigital
-  branch: main
-media_folder: "images"
-public_folder: "/images"
+  name: git-gateway
+  branch: main  # Asegúrate que coincida con tu rama principal
+
+media_folder: "assets/uploads"  # Carpeta para subir imágenes
+public_folder: "/assets/uploads"
+
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "paginas"
+    label: "Páginas"
     files:
       - name: "home"
-        label: "Home Page"
+        label: "Inicio"
         file: "index.html"
         fields:
-          # SEO
-          - { name: "title", label: "Título SEO", default: "Brainstorming Digital | Agencia de Performance Marketing" }
-          - { name: "meta_description", label: "Meta Descripción", default: "Especialistas en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en resultados medibles para tu negocio" }
-
-          # Header
-          - label: "Encabezado"
-            name: "header"
-            widget: "object"
-            fields:
-              - { name: "logo_text", label: "Texto Logo", default: "BRAINSTORMING" }
-              - { name: "logo_highlight", label: "Texto Destacado Logo", default: "DIGITAL" }
-
-          # Navegación
-          - label: "Enlaces de Navegación"
-            name: "navigation"
-            widget: "object"
-            fields:
-              - { name: "service_link", label: "Texto Servicios", default: "Servicios" }
-              - { name: "process_link", label: "Texto Proceso", default: "Proceso" }
-              - { name: "cases_link", label: "Texto Casos", default: "Casos" }
-              - { name: "testimonials_link", label: "Texto Testimonios", default: "Testimonios" }
-              - { name: "contact_link", label: "Texto Contacto", default: "Contacto" }
-
-          # Hero Section
-          - label: "Sección Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - { name: "title", label: "Título Principal", default: "De las ideas a los" }
-              - { name: "title_highlight", label: "Título Destacado", default: "resultados" }
-              - { name: "description", label: "Descripción", widget: "text", default: "Somos Brainstorming Digital, tu agencia de Performance Marketing especializada en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en estrategias que generan ventas reales." }
-              - { name: "primary_button", label: "Texto Botón Primario", default: "¡Quiero vender más!" }
-              - { name: "secondary_button", label: "Texto Botón Secundario", default: "Nuestros servicios" }
-              - { name: "background_image", label: "Imagen de Fondo", widget: "image", default: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" }
-
-          # Servicios
-          - label: "Sección Servicios"
-            name: "services"
-            widget: "object"
-            fields:
-              - { name: "title", label: "Título", default: "Nuestros Servicios" }
-              - { name: "subtitle", label: "Subtítulo", default: "Especializados en campañas de alto rendimiento que generan ROI medible para tu negocio." }
-
-          # Footer
-          - label: "Pie de Página"
-            name: "footer"
-            widget: "object"
-            fields:
-              - { name: "title", label: "Título", default: "Brainstorming Digital" }
-              - { name: "description", label: "Descripción", default: "Especialistas en Performance Marketing con enfoque en resultados medibles y crecimiento sostenible." }
-              - { name: "copyright", label: "Texto Copyright", default: "&copy; 2025 Brainstorming Digital. Todos los derechos reservados." }
-
-          # Contacto
-          - label: "Contacto"
-            name: "contact"
-            widget: "object"
-            fields:
-              - { name: "whatsapp_link", label: "Enlace WhatsApp", default: "http://wa.me/5491170601096" }
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Contenido", name: "body", widget: "markdown"}
