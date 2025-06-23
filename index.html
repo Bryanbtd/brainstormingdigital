@@ -15,21 +15,23 @@
     
     <!-- Fuentes y estilos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Estilos CSS -->
     <style>
         :root {
-            --primary: #2563EB;  /* Azul más profesional */
-            --secondary: #F59E0B;  /* Amarillo vibrante */
-            --dark: #1F2937;  /* Gris oscuro profesional */
+            --primary: #0A2463;  /* Azul corporativo profesional */
+            --secondary: #3E92CC;  /* Azul eléctrico para CTAs */
+            --accent: #2CA58D;  /* Verde esmeralda para resultados */
+            --dark: #1A1A2E;  /* Fondo oscuro profesional */
             --light: #F9FAFB;  /* Fondo claro */
-            --accent: #7C3AED;  /* Púrpura para acentos */
             --text: #374151;  /* Color de texto principal */
             --text-light: #6B7280;  /* Texto secundario */
             --success: #10B981;  /* Verde para éxitos */
             --font-title: 'Montserrat', sans-serif;
             --font-body: 'Poppins', sans-serif;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * {
@@ -55,7 +57,7 @@
 
         a {
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .container {
@@ -68,38 +70,56 @@
         /* Botones */
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 8px;
             font-weight: 600;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: none;
             font-size: 16px;
+            letter-spacing: 0.5px;
         }
 
         .btn-primary {
             background-color: var(--secondary);
-            color: var(--dark);
-            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(62, 146, 204, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(245, 158, 11, 0.3);
-            background-color: #E69009;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(62, 146, 204, 0.4);
+            background-color: #2E7BB2;
+        }
+
+        .btn-primary:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover:after {
+            left: 100%;
         }
 
         .btn-secondary {
             background-color: var(--primary);
             color: white;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 4px 15px rgba(10, 36, 99, 0.3);
         }
 
         .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
-            background-color: #1D4ED8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(10, 36, 99, 0.4);
+            background-color: #081F4D;
         }
 
         /* Header */
@@ -109,10 +129,16 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 18px 0;
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(8px);
+        }
+
+        .scrolled {
+            padding: 12px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         .navbar {
@@ -123,12 +149,15 @@
 
         .logo {
             font-size: 24px;
-            font-weight: 700;
-            color: var(--dark);
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--primary);
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
         }
 
         .nav-links {
@@ -138,8 +167,9 @@
 
         .nav-links a {
             color: var(--text);
-            font-weight: 500;
+            font-weight: 600;
             position: relative;
+            font-size: 15px;
         }
 
         .nav-links a:hover {
@@ -153,7 +183,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
+            background-color: var(--secondary);
             transition: width 0.3s ease;
         }
 
@@ -168,6 +198,7 @@
             color: var(--dark);
             font-size: 24px;
             cursor: pointer;
+            z-index: 1001;
         }
 
         /* Hero Section */
@@ -176,21 +207,48 @@
             display: flex;
             align-items: center;
             padding: 120px 0 80px;
-            background: linear-gradient(135deg, #F9FAFB 0%, #EFF6FF 100%);
+            background: linear-gradient(135deg, var(--light) 0%, #EFF6FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(62, 146, 204, 0.08) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
         }
 
         .hero-content {
             max-width: 700px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px;
             margin-bottom: 20px;
             line-height: 1.2;
         }
 
         .hero h1 span {
             color: var(--primary);
+            position: relative;
+        }
+
+        .hero h1 span:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(62, 146, 204, 0.3);
+            z-index: -1;
         }
 
         .hero p {
@@ -206,19 +264,63 @@
             margin-top: 30px;
         }
 
+        .trust-badges {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .trust-badge {
+            height: 40px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .trust-badge:hover {
+            opacity: 1;
+        }
+
+        .counter {
+            font-size: 14px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .counter strong {
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0 5px;
+        }
+
         /* Secciones */
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
-            font-size: 36px;
+            font-size: 40px;
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
         }
 
         .section-title p {
@@ -237,43 +339,83 @@
 
         .service-card {
             background-color: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            padding: 30px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            padding: 40px 30px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            z-index: 1;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 2;
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(37, 99, 235, 0.1);
-            border-radius: 12px;
+            width: 70px;
+            height: 70px;
+            background-color: rgba(62, 146, 204, 0.1);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--primary);
-            font-size: 24px;
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
         }
 
         .service-card h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 15px;
         }
 
         .service-card p {
             color: var(--text-light);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         /* Proceso */
+        .process {
+            background-color: #F9FAFB;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(62, 146, 204, 0.03)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            z-index: 0;
+        }
+
         .process-steps {
             display: flex;
             justify-content: space-between;
@@ -309,10 +451,17 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            font-size: 36px;
             color: var(--primary);
             border: 3px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .step:hover .step-icon {
+            background-color: var(--primary);
+            color: white;
+            transform: scale(1.1);
         }
 
         .step h3 {
@@ -326,49 +475,75 @@
 
         /* Testimonios */
         .testimonials {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            z-index: 0;
         }
 
         .testimonials .section-title h2,
         .testimonials .section-title p {
             color: white;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-card {
             background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
         }
 
         .testimonial-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 30px;
+            font-size: 16px;
+            line-height: 1.7;
         }
 
         .testimonial-text:before {
             content: '"';
             position: absolute;
             left: 0;
-            top: -10px;
-            font-size: 40px;
-            color: rgba(255, 255, 255, 0.2);
+            top: -15px;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
         }
 
         .testimonial-author {
@@ -377,11 +552,12 @@
         }
 
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             overflow: hidden;
             margin-right: 15px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .author-avatar img {
@@ -393,6 +569,7 @@
         .author-info h4 {
             margin-bottom: 5px;
             color: white;
+            font-weight: 600;
         }
 
         .author-info p {
@@ -400,68 +577,170 @@
             font-size: 14px;
         }
 
+        /* Casos de éxito */
+        .cases {
+            background-color: white;
+        }
+
+        .case-card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 40px 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .case-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 32px;
+            transition: var(--transition);
+        }
+
+        .case-card:hover .case-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .case-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .case-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .case-result {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 15px;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
         /* Formulario de contacto */
+        .contact {
+            background: linear-gradient(135deg, #F9FAFB 0%, #EFF6FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(62, 146, 204, 0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            z-index: 0;
+        }
+
         .contact-form {
             background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: var(--box-shadow);
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 10px;
+            font-weight: 600;
             color: var(--dark);
         }
 
         .form-control {
             width: 100%;
-            padding: 14px 16px;
+            padding: 16px 20px;
             border: 1px solid #E5E7EB;
             border-radius: 8px;
             font-family: var(--font-body);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             background-color: #F9FAFB;
+            font-size: 16px;
         }
 
         .form-control:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(10, 36, 99, 0.1);
             outline: none;
             background-color: white;
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 180px;
             resize: vertical;
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: top;
+            z-index: 0;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
         }
 
         .footer-col h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 20px;
+            margin-bottom: 25px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             color: white;
         }
 
@@ -470,45 +749,59 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 2px;
+            width: 50px;
+            height: 3px;
             background-color: var(--secondary);
+            border-radius: 2px;
         }
 
         .footer-col p, .footer-col a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 15px;
-            font-size: 14px;
-            transition: all 0.3s ease;
+            font-size: 15px;
+            transition: var(--transition);
+            display: block;
         }
 
         .footer-col a:hover {
             color: var(--secondary);
-            padding-left: 5px;
+            padding-left: 8px;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            margin-top: 3px;
+            color: var(--secondary);
         }
 
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            font-size: 18px;
         }
 
         .social-links a:hover {
             background-color: var(--secondary);
-            color: var(--dark);
-            transform: translateY(-3px);
+            color: white;
+            transform: translateY(-5px);
         }
 
         .footer-bottom {
@@ -517,6 +810,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 14px;
             color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 1;
         }
 
         /* WhatsApp flotante */
@@ -532,69 +827,125 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            font-size: 28px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
             z-index: 999;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
         }
 
-        /* Menú flotante inteligente */
-        .quick-access {
+        /* Botón flotante móvil */
+        .floating-menu {
             position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            z-index: 990;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: none;
         }
 
-        .quick-access-btn {
-            width: 50px;
-            height: 50px;
+        .floating-btn {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-            transition: all 0.3s ease;
+            font-size: 24px;
+            box-shadow: 0 8px 25px rgba(10, 36, 99, 0.4);
+            border: none;
             cursor: pointer;
+            transition: var(--transition);
             position: relative;
+            z-index: 2;
         }
 
-        .quick-access-btn:hover {
-            transform: translateY(-3px) scale(1.1);
-            background-color: #1D4ED8;
+        .floating-btn:hover {
+            transform: scale(1.1);
         }
 
-        .quick-access-btn .tooltip {
+        .menu-options {
             position: absolute;
-            right: 60px;
-            background-color: var(--dark);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            white-space: nowrap;
+            bottom: 80px;
+            right: 0;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 200px;
+            padding: 15px 0;
             opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 1;
         }
 
-        .quick-access-btn:hover .tooltip {
+        .menu-options a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .menu-options a:hover {
+            background-color: rgba(62, 146, 204, 0.1);
+            color: var(--primary);
+            padding-left: 25px;
+        }
+
+        .menu-options a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .floating-menu.active .menu-options {
             opacity: 1;
-            right: 65px;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 46px;
+            }
+        }
+
         @media (max-width: 992px) {
             .process-steps:before {
                 display: none;
@@ -604,11 +955,32 @@
                 width: 48%;
                 margin-bottom: 40px;
             }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .section-title h2 {
+                font-size: 36px;
+            }
         }
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                right: 0;
             }
             
             .mobile-menu-btn {
@@ -624,19 +996,57 @@
             }
             
             .section {
-                padding: 60px 0;
+                padding: 80px 0;
             }
             
             .section-title h2 {
-                font-size: 30px;
+                font-size: 32px;
             }
             
             .step {
                 width: 100%;
             }
-            
+
             .quick-access {
                 display: none;
+            }
+
+            .floating-menu {
+                display: block;
+            }
+
+            .whatsapp-float {
+                display: none;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .section-title p {
+                font-size: 16px;
+            }
+
+            .service-card, .case-card {
+                padding: 30px 20px;
+            }
+
+            .contact-form {
+                padding: 25px 20px;
             }
         }
     </style>
@@ -646,12 +1056,14 @@
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">BRAINSTORMING <span>DIGITAL</span></a>
+                <a href="#" class="logo">
+                    <img src="https://via.placeholder.com/150x50?text=BRAND+LOGO" alt="Brainstorming Digital">
+                </a>
                 <div class="nav-links">
                     <a href="#services">Servicios</a>
                     <a href="#process">Proceso</a>
                     <a href="#testimonials">Testimonios</a>
-                    <a href="#cases">Casos</a>
+                    <a href="#cases">Casos de Éxito</a>
                     <a href="#contact">Contacto</a>
                 </div>
                 <button class="mobile-menu-btn">
@@ -661,35 +1073,22 @@
         </div>
     </header>
 
-    <!-- Menú flotante inteligente -->
-    <div class="quick-access">
-        <a href="#contact" class="quick-access-btn" aria-label="Contacto">
-            <i class="fas fa-envelope"></i>
-            <span class="tooltip">Contacto</span>
-        </a>
-        <a href="#process" class="quick-access-btn" aria-label="Nuestro proceso">
-            <i class="fas fa-chart-line"></i>
-            <span class="tooltip">Proceso</span>
-        </a>
-        <a href="#testimonials" class="quick-access-btn" aria-label="Testimonios">
-            <i class="fas fa-quote-left"></i>
-            <span class="tooltip">Testimonios</span>
-        </a>
-        <a href="https://wa.me/5491170601096" class="quick-access-btn" aria-label="WhatsApp" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            <span class="tooltip">WhatsApp</span>
-        </a>
-    </div>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>De las ideas a los <span>resultados</span></h1>
-                <p>Somos Brainstorming Digital, tu agencia de Performance Marketing especializada en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en estrategias que generan ventas reales.</p>
-                <div class="hero-btns">
+            <div class="hero-content animate">
+                <h1>Lleva tu empresa a <span>otro nivel</span></h1>
+                <p class="delay-1">Somos Brainstorming Digital, tu agencia de Performance Marketing especializada en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en estrategias que generan ventas reales.</p>
+                <div class="hero-btns delay-2">
                     <a href="#contact" class="btn btn-primary">¡Quiero vender más!</a>
                     <a href="#services" class="btn btn-secondary">Nuestros servicios</a>
+                </div>
+                <div class="trust-badges delay-3">
+                    <img src="https://via.placeholder.com/120x40?text=GOOGLE+PARTNER" alt="Google Partner" class="trust-badge">
+                    <img src="https://via.placeholder.com/120x40?text=META+CERTIFIED" alt="Meta Certified" class="trust-badge">
+                    <div class="counter">
+                        <i class="fas fa-chart-line"></i> <strong>+$5M</strong> en ventas generadas
+                    </div>
                 </div>
             </div>
         </div>
@@ -698,12 +1097,12 @@
     <!-- Servicios -->
     <section class="section" id="services">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title animate">
                 <h2>Nuestros Servicios</h2>
                 <p>Especializados en campañas de alto rendimiento que generan ROI medible para tu negocio.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card animate delay-1">
                     <div class="service-icon">
                         <i class="fab fa-google"></i>
                     </div>
@@ -711,7 +1110,7 @@
                     <p>Campañas de alto rendimiento en la red de búsqueda, display y YouTube para maximizar tus conversiones.</p>
                     <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Consultar</a>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate delay-2">
                     <div class="service-icon">
                         <i class="fab fa-facebook-f"></i>
                     </div>
@@ -719,7 +1118,7 @@
                     <p>Estrategias avanzadas en Facebook e Instagram para llegar a tu audiencia ideal y generar leads.</p>
                     <a href="#contact" class="btn btn-secondary" style="margin-top: 15px;">Consultar</a>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate delay-3">
                     <div class="service-icon">
                         <i class="fab fa-tiktok"></i>
                     </div>
@@ -732,248 +1131,35 @@
     </section>
 
     <!-- Proceso -->
-    <section class="section" id="process" style="background-color: #F9FAFB;">
+    <section class="section process" id="process">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title animate">
                 <h2>Nuestro Proceso</h2>
                 <p>Metodología probada que garantiza el éxito de tus campañas de marketing digital.</p>
             </div>
             <div class="process-steps">
-                <div class="step">
+                <div class="step animate delay-1">
                     <div class="step-icon">
                         <i class="fas fa-search"></i>
                     </div>
                     <h3>Análisis</h3>
                     <p>Estudiamos tu mercado, competencia y objetivos para crear una estrategia personalizada.</p>
                 </div>
-                <div class="step">
+                <div class="step animate delay-2">
                     <div class="step-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>Implementación</h3>
                     <p>Desarrollamos campañas optimizadas desde el primer día con creativos de alto impacto.</p>
                 </div>
-                <div class="step">
+                <div class="step animate delay-1">
                     <div class="step-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Optimización</h3>
                     <p>Ajustamos en tiempo real basados en datos para maximizar tu retorno de inversión.</p>
                 </div>
-                <div class="step">
+                <div class="step animate delay-2">
                     <div class="step-icon">
                         <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3>Resultados</h3>
-                    <p>Reportes claros con métricas de crecimiento y rentabilidad de tus campañas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonios -->
-    <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <p>Empresas que han escalado su negocio con nuestras estrategias</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>Brainstorming Digital transformó completamente nuestros resultados en Meta Ads. En 3 meses aumentamos nuestras ventas un 150% con la misma inversión.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="María López">
-                        </div>
-                        <div class="author-info">
-                            <h4>María López</h4>
-                            <p>CEO, ModaTrend</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>El equipo entendió perfectamente nuestro mercado y creó campañas en TikTok que nos dieron un ROI del 300%. ¡Increíble!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Méndez">
-                        </div>
-                        <div class="author-info">
-                            <h4>Carlos Méndez</h4>
-                            <p>Director Marketing, TechSolutions</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>Después de trabajar con varias agencias, por fin encontramos profesionales que realmente entienden el performance marketing. Sus reportes son impecables.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Rodríguez">
-                        </div>
-                        <div class="author-info">
-                            <h4>Ana Rodríguez</h4>
-                            <p>CMO, Salud360</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Casos de éxito -->
-    <section class="section" id="cases">
-        <div class="container">
-            <div class="section-title">
-                <h2>Casos de Éxito</h2>
-                <p>Resultados reales que hemos generado para nuestros clientes</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card" style="text-align: center;">
-                    <div class="service-icon" style="margin: 0 auto 20px; background-color: rgba(16, 185, 129, 0.1); color: var(--success);">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3>E-commerce de Moda</h3>
-                    <p>Incrementamos las ventas un 220% en 4 meses con estrategias combinadas de Meta Ads y Google Shopping.</p>
-                    <div style="margin-top: 15px; color: var(--success); font-weight: 600;">
-                        ROI: 320%
-                    </div>
-                </div>
-                <div class="service-card" style="text-align: center;">
-                    <div class="service-icon" style="margin: 0 auto 20px; background-color: rgba(37, 99, 235, 0.1); color: var(--primary);">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>App Financiera</h3>
-                    <p>Redujimos el costo por instalación en un 40% mientras aumentamos las descargas en un 500%.</p>
-                    <div style="margin-top: 15px; color: var(--primary); font-weight: 600;">
-                        +50K descargas
-                    </div>
-                </div>
-                <div class="service-card" style="text-align: center;">
-                    <div class="service-icon" style="margin: 0 auto 20px; background-color: rgba(124, 58, 237, 0.1); color: var(--accent);">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Plataforma Educativa</h3>
-                    <p>Generamos 1,200 leads calificados por mes con un costo por lead 60% menor al promedio del mercado.</p>
-                    <div style="margin-top: 15px; color: var(--accent); font-weight: 600;">
-                        +5K estudiantes
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contacto</h2>
-                <p>¿Listo para transformar tu estrategia digital? ¡Hablemos!</p>
-            </div>
-            <div class="contact-form">
-                <form name="contact" method="POST" data-netlify="true">
-                    <input type="hidden" name="form-name" value="contact">
-                    <div class="form-group">
-                        <label for="name">Nombre completo</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" name="phone" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Servicio de interés</label>
-                        <select id="service" name="service" class="form-control" required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="google-ads">Google Ads</option>
-                            <option value="meta-ads">Meta Ads</option>
-                            <option value="tiktok-ads">TikTok Ads</option>
-                            <option value="multiple">Varios servicios</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" class="form-control"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">Enviar mensaje</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Brainstorming Digital</h3>
-                    <p>Especialistas en Performance Marketing con enfoque en resultados medibles y crecimiento sostenible.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Servicios</h3>
-                    <a href="#">Google Ads</a>
-                    <a href="#">Meta Ads</a>
-                    <a href="#">TikTok Ads</a>
-                    <a href="#">Estrategia Digital</a>
-                </div>
-                <div class="footer-col">
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Digital 123, CABA</p>
-                    <p><i class="fas fa-phone"></i> +54 9 1170601096</p>
-                    <p><i class="fas fa-envelope"></i> brainstormingdigital.agency@gmail.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Brainstorming Digital. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5491170601096" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Scripts -->
-    <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-            }
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                    </
