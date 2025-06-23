@@ -17,9 +17,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Librerías adicionales -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
     <!-- Estilos CSS -->
     <style>
         :root {
@@ -128,22 +125,6 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(44, 165, 141, 0.4);
             background-color: #228F7A;
-        }
-
-        /* Efecto de onda en botones */
-        .btn-wave:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .btn-wave:hover:after {
-            left: 100%;
         }
 
         /* Header */
@@ -866,84 +847,12 @@
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
             z-index: 999;
             transition: var(--transition);
+            display: none;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1) translateY(-5px);
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
-        }
-
-        /* Botón flotante móvil */
-        .floating-menu {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: none;
-        }
-
-        .floating-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 8px 25px rgba(10, 36, 99, 0.4);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            z-index: 2;
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .menu-options {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            width: 200px;
-            padding: 15px 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: var(--transition);
-            z-index: 1;
-        }
-
-        .menu-options a {
-            display: block;
-            padding: 12px 20px;
-            color: var(--dark);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .menu-options a:hover {
-            background-color: rgba(62, 146, 204, 0.1);
-            color: var(--primary);
-            padding-left: 25px;
-        }
-
-        .menu-options a i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .floating-menu.active .menu-options {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
         }
 
         /* Animaciones */
@@ -972,59 +881,6 @@
 
         .delay-3 {
             animation-delay: 0.6s;
-        }
-
-        /* Popup de lead */
-        .lead-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .lead-popup.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .popup-content {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            position: relative;
-            transform: translateY(20px);
-            transition: var(--transition);
-        }
-
-        .lead-popup.active .popup-content {
-            transform: translateY(0);
-        }
-
-        .close-popup {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            color: var(--text-light);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-popup:hover {
-            color: var(--danger);
-            transform: rotate(90deg);
         }
 
         /* Responsive */
@@ -1096,11 +952,7 @@
             }
 
             .whatsapp-float {
-                display: none;
-            }
-
-            .floating-menu {
-                display: block;
+                display: flex;
             }
 
             .contact-form {
@@ -1280,7 +1132,7 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
-                            <img src="assets/testimonial-maria.jpg" alt="María López">
+                            <img src="assets/testimonial-maria.jpg" alt="María López" loading="lazy">
                         </div>
                         <div class="author-info">
                             <h4>María López</h4>
@@ -1301,7 +1153,7 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
-                            <img src="assets/testimonial-carlos.jpg" alt="Carlos Méndez">
+                            <img src="assets/testimonial-carlos.jpg" alt="Carlos Méndez" loading="lazy">
                         </div>
                         <div class="author-info">
                             <h4>Carlos Méndez</h4>
@@ -1322,7 +1174,7 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
-                            <img src="assets/testimonial-ana.jpg" alt="Ana Rodríguez">
+                            <img src="assets/testimonial-ana.jpg" alt="Ana Rodríguez" loading="lazy">
                         </div>
                         <div class="author-info">
                             <h4>Ana Rodríguez</h4>
@@ -1384,11 +1236,8 @@
                 <p>¿Listo para transformar tu estrategia digital? ¡Hablemos!</p>
             </div>
             <div class="contact-form animate delay-1">
-                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <form name="contact" method="POST" data-netlify="true" action="/gracias.html">
                     <input type="hidden" name="form-name" value="contact">
-                    <p class="hidden">
-                        <label>No llenes este campo si eres humano: <input name="bot-field"></label>
-                    </p>
                     <div class="form-group">
                         <label for="name">Nombre completo</label>
                         <input type="text" id="name" name="name" class="form-control" required placeholder="Ej: Juan Pérez">
@@ -1458,41 +1307,10 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
+    <!-- WhatsApp Float (SOLO móvil) -->
     <a href="https://wa.me/5491170601096" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <!-- Botón flotante móvil -->
-    <div class="floating-menu">
-        <button class="floating-btn" id="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="menu-options">
-            <a href="#services"><i class="fas fa-chart-pie"></i> Servicios</a>
-            <a href="#cases"><i class="fas fa-trophy"></i> Casos de Éxito</a>
-            <a href="#contact"><i class="fas fa-envelope"></i> Contacto</a>
-            <a href="https://wa.me/5491170601096" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-    </div>
-
-    <!-- Popup de Lead (aparece después de 5 segundos) -->
-    <div class="lead-popup" id="leadPopup">
-        <div class="popup-content">
-            <span class="close-popup" id="closePopup">&times;</span>
-            <h3>🎁 Descarga nuestra Guía Gratis</h3>
-            <p><strong>"5 Estrategias de Performance Marketing que aumentaron ventas en un 300%"</strong></p>
-            <form id="leadForm" netlify>
-                <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Tu nombre" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Tu email" required>
-                </div>
-                <button type="submit" class="btn btn-accent btn-wave" style="width: 100%;">Descargar Guía</button>
-            </form>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script>
@@ -1518,7 +1336,6 @@
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Cerrar menú móvil si está abierto
                 if(document.querySelector('.nav-links').classList.contains('active')) {
                     document.querySelector('.nav-links').classList.remove('active');
                     document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
@@ -1528,20 +1345,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // Botón flotante móvil
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.querySelector('.floating-menu').classList.toggle('active');
-        });
-
-        // Popup de lead
-        setTimeout(function() {
-            document.getElementById('leadPopup').classList.add('active');
-        }, 5000);
-
-        document.getElementById('closePopup').addEventListener('click', function() {
-            document.getElementById('leadPopup').classList.remove('active');
         });
 
         // Animaciones al hacer scroll
@@ -1569,7 +1372,6 @@
         const contactForm = document.querySelector('form[name="contact"]');
         if(contactForm) {
             contactForm.addEventListener('submit', function(e) {
-                // Validación adicional puede ir aquí
                 const submitBtn = this.querySelector('button[type="submit"]');
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
                 submitBtn.disabled = true;
