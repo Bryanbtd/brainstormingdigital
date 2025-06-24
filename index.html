@@ -1378,5 +1378,17 @@
             });
         }
     </script>
+    <script>
+  // Redirección automática después de login
+  if (window.netlifyIdentity) {
+    netlifyIdentity.on('init', user => {
+      if (!user) {
+        netlifyIdentity.on('login', () => {
+          document.location.href = '/admin/';
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
