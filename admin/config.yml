@@ -1,7 +1,12 @@
 backend:
   name: git-gateway
   branch: main
+  commit_messages:
+    create: "Crear {{collection}} “{{slug}}”"
+    update: "Actualizar {{collection}} “{{slug}}”"
 
+# Añade esta configuración de roles:
+publish_mode: editorial_workflow
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
