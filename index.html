@@ -1390,5 +1390,16 @@
     });
   }
 </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  if(window.location.hash.includes('invite_token')) {
+    const token = window.location.hash.split('=')[1];
+    window.netlifyIdentity?.open('signup');
+    window.netlifyIdentity?.on('signup', user => {
+      window.location.href = '/admin/';
+    });
+  }
+});
+</script>
 </body>
 </html>
