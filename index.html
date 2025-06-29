@@ -50,6 +50,45 @@
             overflow-x: hidden;
         }
 
+        /* Header optimizado para móvil */
+        @media (max-width: 768px) {
+            body {
+                background-color: var(--light);
+            }
+            
+            header {
+                background-color: white !important;
+                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            /* Menú móvil con mejor contraste */
+            .nav-links {
+                background: rgba(26, 26, 46, 0.98) !important;
+                backdrop-filter: blur(10px);
+                padding: 100px 30px 30px !important;
+            }
+            
+            .nav-links a {
+                color: white !important;
+                font-size: 18px !important;
+                padding: 12px 0;
+            }
+            
+            /* SOLUCIÓN PARA EL PROBLEMA DEL LOGO */
+            .logo span {
+                display: none; /* Oculta el texto en móvil */
+            }
+            
+            .navbar {
+                padding: 5px 0;
+            }
+            
+            .logo img {
+                height: 35px; /* Tamaño más apropiado para móvil */
+                margin-right: 0;
+            }
+        }
+
         h1, h2, h3, h4, h5 {
             font-family: var(--font-title);
             font-weight: 700;
@@ -151,7 +190,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .logo {
@@ -160,13 +198,32 @@
             color: var(--primary);
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         .logo img {
             height: 40px;
-            width: auto;
-            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        /* Estilo para el texto del logo */
+        .logo-text {
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text .tm {
+            font-size: 0.6em;
+            vertical-align: super;
+            margin-left: 2px;
+        }
+
+        .logo-text .brand {
+            display: block;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-top: -3px;
         }
 
         .nav-links {
@@ -915,17 +972,6 @@
         }
 
         @media (max-width: 768px) {
-            /* Header optimizado para móvil */
-            body {
-                background-color: var(--light);
-            }
-            
-            header {
-                background-color: white !important;
-                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            /* Menú móvil con mejor contraste */
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -937,19 +983,10 @@
                 padding: 100px 30px 30px;
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
                 transition: var(--transition);
-                z-index: 1000;
             }
 
             .nav-links.active {
                 right: 0;
-            }
-            
-            .nav-links a {
-                color: white !important;
-                font-size: 18px !important;
-                padding: 12px 0;
-                width: 100%;
-                display: block;
             }
             
             .mobile-menu-btn {
@@ -983,9 +1020,6 @@
             .step-icon {
                 margin: 0;
                 flex-shrink: 0;
-                width: 80px;
-                height: 80px;
-                font-size: 28px;
             }
 
             .whatsapp-float {
@@ -994,21 +1028,6 @@
 
             .contact-form {
                 padding: 30px;
-            }
-
-            /* Logo ajustado para móvil */
-            .logo {
-                flex-wrap: wrap;
-            }
-            
-            .logo img {
-                height: 40px;
-                margin-right: 0;
-            }
-            
-            .logo span {
-                font-size: 20px;
-                line-height: 1.3;
             }
         }
 
@@ -1041,21 +1060,6 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
-            /* Ajustes adicionales para móviles pequeños */
-            .hero-btns .btn {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .process-steps {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .step {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -1067,10 +1071,13 @@
             <a href="/" class="logo">
                 <img 
                     src="/assets/uploads/1.png" 
-                    alt="Brainstorming Digital - Agencia de Marketing"
-                    onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><rect width=\"100\" height=\"100\" fill=\"%230A2463\" rx=\"20\"/><text x=\"50\" y=\"50\" font-family=\"Arial\" font-size=\"30\" fill=\"white\" text-anchor=\"middle\" dominant-baseline=\"middle\">BD</text></svg>'"
+                    alt="Brainstorming Digital - Agencia de Marketing" 
+                    style="height: 40px; margin-right: 10px;"
                 >
-                <span>Brainstorming Digital</span>
+                <span class="logo-text">
+                    BD<span class="tm">™</span>
+                    <span class="brand">Brainstorming Digital</span>
+                </span>
             </a>
             
             <!-- NAVEGACIÓN -->
