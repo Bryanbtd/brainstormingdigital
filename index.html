@@ -6,16 +6,18 @@
     <title>Brainstorming Digital | Agencia de Performance Marketing</title>
     <meta name="description" content="Especialistas en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en resultados medibles para tu negocio">
     
-    <!-- Preconexión para mejorar performance -->
+    <!-- Preconexión y precarga de recursos críticos -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" media="print" onload="this.media='all'">
     
     <!-- Favicon -->
     <link rel="icon" href="assets/favicon.png" type="image/png">
     
-    <!-- Fuentes y estilos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome (carga optimizada) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Estilos CSS -->
     <style>
@@ -26,7 +28,7 @@
             --dark: #1A1A2E;  /* Fondo oscuro profesional */
             --light: #F9FAFB;  /* Fondo claro */
             --text: #374151;  /* Color de texto principal */
-            --text-light: #6B7280;  /* Texto secundario */
+            --text-light: #5a6573;  /* Texto secundario (15% más oscuro) */
             --success: #10B981;  /* Verde para éxitos */
             --warning: #F59E0B;  /* Amarillo para alertas */
             --danger: #EF4444;   /* Rojo para errores */
@@ -51,16 +53,28 @@
             overflow-x: hidden;
         }
 
-        /* MODIFICACIÓN 1: Fondo dividido en móvil */
+        /* Header optimizado para móvil */
         @media (max-width: 768px) {
             body {
-                background-color: #f5f5f7; /* Gris claro para la mitad inferior en móvil */
+                background-color: #f5f5f7;
             }
             
-            /* Asegurar que el header tenga fondo blanco sólido */
             header {
                 background-color: white !important;
                 box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            /* Menú móvil con mejor contraste */
+            .nav-links {
+                background: rgba(26, 26, 46, 0.98) !important;
+                backdrop-filter: blur(10px);
+                padding: 100px 30px 30px !important;
+            }
+            
+            .nav-links a {
+                color: white !important;
+                font-size: 18px !important;
+                padding: 12px 0;
             }
         }
 
@@ -79,6 +93,7 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
 
         .container {
@@ -88,7 +103,7 @@
             padding: 0 20px;
         }
 
-        /* Botones */
+        /* Botones mejorados */
         .btn {
             display: inline-block;
             padding: 14px 32px;
@@ -107,41 +122,40 @@
         .btn-primary {
             background-color: var(--secondary);
             color: white;
-            box-shadow: 0 4px 15px rgba(62, 146, 204, 0.3);
+            box-shadow: 0 4px 12px rgba(62, 146, 204, 0.25);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(62, 146, 204, 0.4);
+            box-shadow: 0 8px 20px rgba(62, 146, 204, 0.3);
             background-color: #2E7BB2;
         }
 
         .btn-secondary {
             background-color: var(--primary);
-            /* MODIFICACIÓN 2: Texto blanco en botón Contacto */
             color: white !important;
-            box-shadow: 0 4px 15px rgba(10, 36, 99, 0.3);
+            box-shadow: 0 4px 12px rgba(10, 36, 99, 0.25);
         }
 
         .btn-secondary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(10, 36, 99, 0.4);
+            box-shadow: 0 8px 20px rgba(10, 36, 99, 0.3);
             background-color: #081F4D;
         }
 
         .btn-accent {
             background-color: var(--accent);
             color: white;
-            box-shadow: 0 4px 15px rgba(44, 165, 141, 0.3);
+            box-shadow: 0 4px 12px rgba(44, 165, 141, 0.25);
         }
 
         .btn-accent:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(44, 165, 141, 0.4);
+            box-shadow: 0 8px 20px rgba(44, 165, 141, 0.3);
             background-color: #228F7A;
         }
 
-        /* Header */
+        /* Header mejorado */
         header {
             position: fixed;
             top: 0;
@@ -220,7 +234,7 @@
             z-index: 1001;
         }
 
-        /* Hero Section */
+        /* Hero Section mejorada */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -262,11 +276,11 @@
         .hero h1 span:after {
             content: '';
             position: absolute;
-            bottom: 5px;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 8px;
-            background-color: rgba(62, 146, 204, 0.3);
+            height: 12px;
+            background-color: rgba(62, 146, 204, 0.4);
             z-index: -1;
         }
 
@@ -318,7 +332,7 @@
             margin: 0 5px;
         }
 
-        /* Secciones */
+        /* Secciones optimizadas */
         .section {
             padding: 100px 0;
             position: relative;
@@ -355,7 +369,7 @@
             font-size: 18px;
         }
 
-        /* Servicios */
+        /* Servicios mejorados */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -367,7 +381,7 @@
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--box-shadow);
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.5s ease;
             padding: 40px 30px;
             border: 1px solid rgba(0, 0, 0, 0.03);
             position: relative;
@@ -407,7 +421,7 @@
         .service-card:hover .service-icon {
             background-color: var(--primary);
             color: white;
-            transform: rotateY(180deg);
+            transform: rotate(15deg) scale(1.1);
         }
 
         .service-card h3 {
@@ -420,7 +434,7 @@
             margin-bottom: 25px;
         }
 
-        /* Proceso */
+        /* Proceso mejorado para móvil */
         .process {
             background-color: #F9FAFB;
             position: relative;
@@ -498,7 +512,7 @@
             color: var(--text-light);
         }
 
-        /* Testimonios */
+        /* Testimonios optimizados */
         .testimonials {
             background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
             color: white;
@@ -607,7 +621,7 @@
             margin-bottom: 10px;
         }
 
-        /* Casos de éxito */
+        /* Casos de éxito mejorados */
         .cases {
             background-color: white;
         }
@@ -669,7 +683,7 @@
             color: var(--success);
         }
 
-        /* Formulario de contacto */
+        /* Formulario de contacto optimizado */
         .contact {
             background: linear-gradient(135deg, #F9FAFB 0%, #EFF6FF 100%);
             position: relative;
@@ -735,9 +749,9 @@
             resize: vertical;
         }
 
-        /* Footer */
+        /* Footer mejorado */
         footer {
-            background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
+            background: linear-gradient(135deg, #1A1A2E 0%, #0F3460 100%);
             color: white;
             padding: 80px 0 30px;
             position: relative;
@@ -794,8 +808,8 @@
         }
 
         .footer-col a:hover {
-            color: var(--secondary);
-            padding-left: 8px;
+            color: var(--secondary) !important;
+            padding-left: 5px;
         }
 
         .footer-contact p {
@@ -868,7 +882,7 @@
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
         }
 
-        /* Animaciones */
+        /* Animaciones mejoradas */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -896,7 +910,7 @@
             animation-delay: 0.6s;
         }
 
-        /* Responsive */
+        /* Responsive mejorado */
         @media (max-width: 1200px) {
             .hero h1 {
                 font-size: 46px;
@@ -929,7 +943,7 @@
                 right: -100%;
                 width: 280px;
                 height: 100vh;
-                background-color: white;
+                background-color: rgba(26, 26, 46, 0.98);
                 flex-direction: column;
                 padding: 100px 30px 30px;
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
@@ -950,6 +964,7 @@
             
             .hero-btns {
                 flex-direction: column;
+                gap: 10px;
             }
             
             .section {
@@ -962,6 +977,14 @@
             
             .step {
                 width: 100%;
+                display: flex;
+                gap: 20px;
+                text-align: left;
+            }
+            
+            .step-icon {
+                margin: 0;
+                flex-shrink: 0;
             }
 
             .whatsapp-float {
@@ -995,7 +1018,7 @@
             }
 
             .contact-form {
-                padding: 25px 20px;
+                padding: 25px 15px;
             }
 
             .trust-badges {
@@ -1004,14 +1027,12 @@
             }
         }
     </style>
-    <!-- Netlify Identity Widget - Versión optimizada -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-<header>
+<header id="header">
     <div class="container">
         <div class="navbar">
-            <!-- LOGO - COPIAR DESDE AQUÍ -->
+            <!-- LOGO -->
             <a href="/" class="logo">
                 <img 
                     src="/assets/uploads/1.png" 
@@ -1020,7 +1041,6 @@
                 >
                 <span style="font-weight: 800; color: var(--primary);">Brainstorming Digital</span>
             </a>
-            <!-- LOGO - HASTA AQUÍ -->
             
             <nav class="nav-links">
                 <a href="#servicios">Servicios</a>
@@ -1047,8 +1067,8 @@
                     <a href="#services" class="btn btn-secondary btn-wave">Nuestros servicios</a>
                 </div>
                 <div class="trust-badges delay-3">
-                    <img src="assets/badge-google-partner.png" alt="Google Partner" class="trust-badge">
-                    <img src="assets/badge-meta-business.png" alt="Meta Certified" class="trust-badge">
+                    <img src="assets/badge-google-partner.png" alt="Google Partner" class="trust-badge" loading="lazy">
+                    <img src="assets/badge-meta-business.png" alt="Meta Certified" class="trust-badge" loading="lazy">
                     <div class="counter">
                         <i class="fas fa-chart-line"></i> <strong>+$5M</strong> en ventas generadas
                     </div>
@@ -1259,48 +1279,48 @@
             </div>
             <div class="contact-form animate delay-1">
                 <form name="contact" method="POST" data-netlify="true" action="/gracias.html" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="contact">
-  
-  <!-- Campo honeypot para spam (oculto) -->
-  <div style="display: none;">
-    <label>No llenes esto si eres humano: <input name="bot-field"></label>
-  </div>
-  
-  <!-- Campos del formulario -->
-  <div class="form-group">
-    <label for="name">Nombre completo</label>
-    <input type="text" id="name" name="name" class="form-control" required placeholder="Ej: Juan Pérez">
-  </div>
-  
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" class="form-control" required placeholder="Ej: contacto@empresa.com">
-  </div>
-  
-  <div class="form-group">
-    <label for="phone">Teléfono</label>
-    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Ej: +54 9 11 1234-5678">
-  </div>
-  
-  <div class="form-group">
-    <label for="service">Servicio de interés</label>
-    <select id="service" name="service" class="form-control" required>
-      <option value="">Selecciona una opción</option>
-      <option value="google-ads">Google Ads</option>
-      <option value="meta-ads">Meta Ads</option>
-      <option value="tiktok-ads">TikTok Ads</option>
-      <option value="multiple">Varios servicios</option>
-      <option value="consultoria">Consultoría Estratégica</option>
-    </select>
-  </div>
-  
-  <div class="form-group">
-    <label for="message">Mensaje</label>
-    <textarea id="message" name="message" class="form-control" placeholder="Cuéntanos sobre tu proyecto y objetivos"></textarea>
-  </div>
-  
-  <button type="submit" class="btn btn-primary btn-wave" style="width: 100%; padding: 16px;">Enviar mensaje</button>
-</form>
+                    <input type="hidden" name="form-name" value="contact">
+                    
+                    <!-- Campo honeypot para spam (oculto) -->
+                    <div style="display: none;">
+                        <label>No llenes esto si eres humano: <input name="bot-field"></label>
+                    </div>
+                    
+                    <!-- Campos del formulario -->
+                    <div class="form-group">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" name="name" class="form-control" required placeholder="Ej: Juan Pérez">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="Ej: contacto@empresa.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Ej: +54 9 11 1234-5678">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Servicio de interés</label>
+                        <select id="service" name="service" class="form-control" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="google-ads">Google Ads</option>
+                            <option value="meta-ads">Meta Ads</option>
+                            <option value="tiktok-ads">TikTok Ads</option>
+                            <option value="multiple">Varios servicios</option>
+                            <option value="consultoria">Consultoría Estratégica</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Cuéntanos sobre tu proyecto y objetivos"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-wave" style="width: 100%; padding: 16px;">Enviar mensaje</button>
+                </form>
             </div>
         </div>
     </section>
@@ -1346,7 +1366,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts del sitio -->
+    <!-- Scripts optimizados -->
     <script>
         // Header scroll effect
         window.addEventListener('scroll', function() {
@@ -1358,20 +1378,22 @@
             }
         });
 
-        // Mobile menu toggle
+        // Mobile menu toggle mejorado
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.innerHTML = document.querySelector('.nav-links').classList.contains('active') ? 
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+            this.innerHTML = navLinks.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // Smooth scrolling
+        // Smooth scrolling optimizado
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                if(document.querySelector('.nav-links').classList.contains('active')) {
-                    document.querySelector('.nav-links').classList.remove('active');
+                const navLinks = document.querySelector('.nav-links');
+                if(navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
                     document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
                 }
                 
@@ -1381,7 +1403,7 @@
             });
         });
 
-        // Animaciones al hacer scroll
+        // Animaciones al hacer scroll (optimizado)
         const animateElements = document.querySelectorAll('.animate');
         
         const observer = new IntersectionObserver((entries) => {
@@ -1402,7 +1424,7 @@
             observer.observe(element);
         });
 
-        // Formulario de contacto
+        // Feedback visual para el formulario
         const contactForm = document.querySelector('form[name="contact"]');
         if(contactForm) {
             contactForm.addEventListener('submit', function(e) {
@@ -1411,45 +1433,6 @@
                 submitBtn.disabled = true;
             });
         }
-    </script>
-
-    <!-- Solución MEJORADA para Netlify Identity -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Verificar si hay token de invitación en la URL
-            const urlParams = new URLSearchParams(window.location.hash.substring(1));
-            const inviteToken = urlParams.get('invite_token');
-
-            // 2. Configurar Netlify Identity
-            if (window.netlifyIdentity) {
-                // 3. Si hay token, forzar modal de registro
-                if (inviteToken) {
-                    netlifyIdentity.on('init', () => {
-                        if (!netlifyIdentity.currentUser()) {
-                            netlifyIdentity.open('signup');
-                        }
-                    });
-                }
-
-                // 4. Redirección después de login exitoso
-                netlifyIdentity.on('login', () => {
-                    window.location.href = '/admin/';
-                });
-
-                // 5. Manejo de errores
-                netlifyIdentity.on('error', (err) => {
-                    console.error('Error en Netlify Identity:', err);
-                    // Redirección alternativa si falla
-                    if (inviteToken) {
-                        window.location.href = `/admin/#invite_token=${inviteToken}`;
-                    }
-                });
-            }
-            // 6. Solución para móviles/redirección manual
-            else if (inviteToken) {
-                window.location.href = `/admin/#invite_token=${inviteToken}`;
-            }
-        });
     </script>
 </body>
 </html>
