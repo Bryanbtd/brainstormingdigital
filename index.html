@@ -188,9 +188,24 @@
             align-items: center;
         }
 
-        .logo img {
-            height: 40px;
+        /* MODIFICACIÓN PRINCIPAL: Logo responsive */
+        .logo-img {
+            width: 80px; /* Tamaño para desktop */
+            height: 80px;
+            object-fit: contain;
             margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                width: 60px; /* Tamaño para móvil */
+                height: 60px;
+                /* Efectos opcionales para móvil */
+                border: 1px solid rgba(10, 36, 99, 0.1);
+                padding: 3px;
+                border-radius: 8px;
+            }
         }
 
         .nav-links {
@@ -1034,12 +1049,12 @@
 <header id="header">
     <div class="container">
         <div class="navbar">
-            <!-- LOGO -->
+            <!-- LOGO - MODIFICADO PARA USAR UN SOLO ARCHIVO -->
             <a href="/" class="logo">
                 <img 
                     src="/assets/uploads/1.png" 
                     alt="Brainstorming Digital - Agencia de Marketing" 
-                    style="height: 40px; margin-right: 10px;"
+                    class="logo-img"
                 >
                 <span style="font-weight: 800; color: var(--primary);">Brainstorming Digital</span>
             </a>
