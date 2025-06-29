@@ -1285,7 +1285,30 @@
     <textarea id="message" name="message" class="form-control" placeholder="Cuéntanos sobre tu proyecto y objetivos"></textarea>
   </div>
   
-  <button type="submit" class="btn btn-primary btn-wave" style="width: 100%; padding: 16px;">Enviar mensaje</button>
+  <!-- Bloque de consentimiento RGPD/LATAM 2025 -->
+<div class="form-group" style="margin: 20px 0; background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
+  <div style="display: flex; align-items: flex-start;">
+    <input 
+      type="checkbox" 
+      id="privacy-consent" 
+      name="privacy-consent" 
+      required
+      style="margin-right: 10px; margin-top: 3px; min-width: 16px;"
+    >
+    <label for="privacy-consent" style="font-size: 14px; line-height: 1.5;">
+      <strong>Acepto la política de privacidad y el tratamiento de mis datos personales.</strong><br>
+      Autorizo que mis datos sean procesados según la <a href="/politica-de-privacidad" target="_blank" style="color: #0066cc; text-decoration: underline;">Política de Privacidad</a> y las leyes aplicables (RGPD UE, LFPDPPP México, Ley Argentina 25.326). Entiendo que puedo retirar mi consentimiento en cualquier momento.
+    </label>
+  </div>
+</div>
+
+<!-- Texto de protección adicional -->
+<p style="font-size: 12px; color: #666; margin-top: 10px; line-height: 1.5;">
+  🔒 <strong>Protección de datos:</strong> Este sitio utiliza medidas de seguridad avanzadas (HTTPS, reCAPTCHA) y cumple con las normativas vigentes en 2025. Los datos se almacenan temporalmente en servidores de Netlify (EE.UU.) bajo el <a href="https://www.netlify.com/privacy/" target="_blank" style="color: #0066cc; text-decoration: underline;">Privacy Shield Framework</a>.
+</p>
+
+<!-- Botón de enviar (conserva tus estilos) -->
+<button type="submit" class="btn btn-primary btn-wave" style="width: 100%; padding: 16px; margin-top: 10px;">Enviar mensaje</button>
 </form>
             </div>
         </div>
