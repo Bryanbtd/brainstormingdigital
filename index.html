@@ -939,26 +939,18 @@
         }
 
         @media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background-color: white;
-    padding: 100px 30px 30px;
-    transition: var(--transition);
-    overflow-y: auto; /* Permite scroll si el menú es muy largo */
-    z-index: 999;
-    /* Eliminamos box-shadow y añadimos reset de bordes */
-    box-shadow: none !important;
-    border: none !important;
-  }
-
-  .nav-links.active {
-    right: 0;
-  }
-}
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: rgba(26, 26, 46, 0.98);
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+            }
 
             .nav-links.active {
                 right: 0;
