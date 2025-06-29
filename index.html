@@ -188,9 +188,52 @@
             align-items: center;
         }
 
-        .logo img {
-            height: 40px;
+        /* Logo responsive */
+        .logo-img {
+            width: 80px; /* Tamaño para desktop */
+            height: 80px;
+            object-fit: contain;
             margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-weight: 800;
+            color: var(--primary);
+            transition: var(--transition);
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                width: 60px; /* Tamaño para móvil */
+                height: 60px;
+                border: 1px solid rgba(10, 36, 99, 0.1);
+                padding: 3px;
+                border-radius: 8px;
+            }
+            
+            .logo-text {
+                font-size: 18px; /* Texto más pequeño en móvil */
+            }
+            
+            /* Opcional: ajuste de disposición para móvil */
+            .logo {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo-img {
+                margin-bottom: 5px;
+                margin-right: 0;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .logo {
+                align-items: center;
+                flex-direction: row;
+            }
         }
 
         .nav-links {
@@ -1034,14 +1077,14 @@
 <header id="header">
     <div class="container">
         <div class="navbar">
-            <!-- LOGO -->
+            <!-- LOGO MODIFICADO -->
             <a href="/" class="logo">
                 <img 
                     src="/assets/uploads/1.png" 
                     alt="Brainstorming Digital - Agencia de Marketing" 
-                    style="height: 40px; margin-right: 10px;"
+                    class="logo-img"
                 >
-                <span style="font-weight: 800; color: var(--primary);">Brainstorming Digital</span>
+                <span class="logo-text">Brainstorming Digital</span>
             </a>
             
             <!-- NAVEGACIÓN CORREGIDA -->
