@@ -51,6 +51,19 @@
             overflow-x: hidden;
         }
 
+        /* MODIFICACIÓN 1: Fondo dividido en móvil */
+        @media (max-width: 768px) {
+            body {
+                background-color: #f5f5f7; /* Gris claro para la mitad inferior en móvil */
+            }
+            
+            /* Asegurar que el header tenga fondo blanco sólido */
+            header {
+                background-color: white !important;
+                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            }
+        }
+
         h1, h2, h3, h4, h5 {
             font-family: var(--font-title);
             font-weight: 700;
@@ -105,7 +118,8 @@
 
         .btn-secondary {
             background-color: var(--primary);
-            color: white;
+            /* MODIFICACIÓN 2: Texto blanco en botón Contacto */
+            color: white !important;
             box-shadow: 0 4px 15px rgba(10, 36, 99, 0.3);
         }
 
