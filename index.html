@@ -13,6 +13,9 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" media="print" onload="this.media='all'">
     
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    
     <!-- Font Awesome (carga optimizada) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -53,7 +56,7 @@
         /* Header optimizado para móvil */
         @media (max-width: 768px) {
             body {
-                background-color: var(--light);
+                background-color: var(--light); /* Fondo uniforme en móvil */
             }
             
             header {
@@ -72,20 +75,6 @@
                 color: white !important;
                 font-size: 18px !important;
                 padding: 12px 0;
-            }
-            
-            /* SOLUCIÓN PARA EL PROBLEMA DEL LOGO */
-            .logo span {
-                display: none; /* Oculta el texto en móvil */
-            }
-            
-            .navbar {
-                padding: 5px 0;
-            }
-            
-            .logo img {
-                height: 35px; /* Tamaño más apropiado para móvil */
-                margin-right: 0;
             }
         }
 
@@ -178,7 +167,6 @@
             background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(8px);
-            overflow: hidden;
         }
 
         .scrolled {
@@ -203,27 +191,6 @@
         .logo img {
             height: 40px;
             margin-right: 10px;
-        }
-
-        /* Estilo para el texto del logo */
-        .logo-text {
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-
-        .logo-text .tm {
-            font-size: 0.6em;
-            vertical-align: super;
-            margin-left: 2px;
-        }
-
-        .logo-text .brand {
-            display: block;
-            font-size: 0.8em;
-            font-weight: 600;
-            color: var(--secondary);
-            margin-top: -3px;
         }
 
         .nav-links {
@@ -1067,20 +1034,17 @@
 <header id="header">
     <div class="container">
         <div class="navbar">
-            <!-- LOGO CORREGIDO -->
+            <!-- LOGO -->
             <a href="/" class="logo">
                 <img 
                     src="/assets/uploads/1.png" 
                     alt="Brainstorming Digital - Agencia de Marketing" 
                     style="height: 40px; margin-right: 10px;"
                 >
-                <span class="logo-text">
-                    BD<span class="tm">™</span>
-                    <span class="brand">Brainstorming Digital</span>
-                </span>
+                <span style="font-weight: 800; color: var(--primary);">Brainstorming Digital</span>
             </a>
             
-            <!-- NAVEGACIÓN -->
+            <!-- NAVEGACIÓN CORREGIDA -->
             <nav class="nav-links">
                 <a href="#services">Servicios</a>
                 <a href="#process">Proceso</a>
