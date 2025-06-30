@@ -5,12 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brainstorming Digital | Agencia de Performance Marketing</title>
     <meta name="description" content="Especialistas en Google Ads, Meta Ads y TikTok Ads. Transformamos datos en resultados medibles para tu negocio">
+    <meta name="keywords" content="agencia marketing digital, google ads, meta ads, tiktok ads, performance marketing, publicidad digital">
+    <meta name="author" content="Brainstorming Digital">
+    
+    <!-- Schema.org para Agencia de Marketing -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Brainstorming Digital",
+        "description": "Agencia especializada en Performance Marketing con Google Ads, Meta Ads y TikTok Ads",
+        "url": "https://agencybrainstorming.digital",
+        "logo": "https://agencybrainstorming.digital/assets/uploads/1.png",
+        "telephone": "+54 9 11 7060-1096",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Digital 123",
+            "addressLocality": "CABA",
+            "addressRegion": "Buenos Aires",
+            "addressCountry": "AR"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "areaServed": "Argentina",
+        "serviceArea": {
+            "@type": "AdministrativeArea",
+            "name": "Latinoamérica"
+        }
+    }
+    </script>
     
     <!-- Preconexión y precarga de recursos críticos -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" as="style">
+    <link rel="preload" href="/assets/uploads/1.png" as="image" fetchpriority="high">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" media="print" onload="this.media='all'">
     
     <!-- Favicon -->
@@ -66,7 +95,7 @@
             
             /* Menú móvil con mejor contraste */
             .nav-links {
-                background: rgba(26, 26, 46, 0.98) !important;
+                background: rgba(10, 36, 99, 0.98) !important; /* Azul más oscuro para mejor contraste */
                 backdrop-filter: blur(10px);
                 padding: 100px 30px 30px !important;
             }
@@ -75,6 +104,43 @@
                 color: white !important;
                 font-size: 18px !important;
                 padding: 12px 0;
+            }
+            
+            /* Logo optimizado para móvil */
+            .logo {
+                flex-direction: row !important; /* Mantiene logo y texto en línea */
+                align-items: center;
+            }
+            
+            .logo-img {
+                width: 45px !important; /* Tamaño reducido */
+                height: 45px !important;
+                border: none !important; /* Elimina borde */
+                padding: 0 !important; /* Elimina padding */
+                margin-right: 10px !important; /* Espacio entre logo y texto */
+                background-color: transparent !important; /* Fondo transparente */
+                aspect-ratio: 1/1; /* Mantiene proporción */
+                object-fit: contain; /* Asegura visualización correcta */
+            }
+            
+            .logo-text {
+                font-size: 16px !important; /* Tamaño óptimo para móvil */
+                white-space: nowrap; /* Evita salto de línea */
+            }
+            
+            /* Mejora espacio en header móvil */
+            header {
+                padding: 12px 0 !important;
+            }
+            
+            /* Mejor contraste en textos */
+            body {
+                --text-light: #4b5563; /* Color más oscuro para mejor contraste */
+            }
+            
+            /* Subrayado más discreto */
+            .hero h1 span:after {
+                height: 8px;
             }
         }
 
@@ -195,6 +261,8 @@
             object-fit: contain;
             margin-right: 10px;
             transition: var(--transition);
+            background-color: transparent !important; /* Fondo transparente forzado */
+            aspect-ratio: 1/1; /* Mantiene proporción */
         }
 
         .logo-text {
@@ -202,31 +270,6 @@
             color: var(--primary);
             transition: var(--transition);
             font-size: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .logo-img {
-                width: 60px; /* Tamaño para móvil */
-                height: 60px;
-                border: 1px solid rgba(10, 36, 99, 0.1);
-                padding: 3px;
-                border-radius: 8px;
-            }
-            
-            .logo-text {
-                font-size: 18px; /* Texto más pequeño en móvil */
-            }
-            
-            /* Opcional: ajuste de disposición para móvil */
-            .logo {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .logo-img {
-                margin-bottom: 5px;
-                margin-right: 0;
-            }
         }
 
         @media (min-width: 769px) {
@@ -988,7 +1031,7 @@
                 right: -100%;
                 width: 280px;
                 height: 100vh;
-                background-color: rgba(26, 26, 46, 0.98);
+                background-color: rgba(10, 36, 99, 0.98) !important; /* Azul más oscuro */
                 flex-direction: column;
                 padding: 100px 30px 30px;
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
@@ -1077,12 +1120,13 @@
 <header id="header">
     <div class="container">
         <div class="navbar">
-            <!-- LOGO MODIFICADO -->
+            <!-- LOGO OPTIMIZADO -->
             <a href="/" class="logo">
                 <img 
                     src="/assets/uploads/1.png" 
                     alt="Brainstorming Digital - Agencia de Marketing" 
                     class="logo-img"
+                    style="background-color: transparent !important;"  <!-- Fuerza transparencia -->
                 >
                 <span class="logo-text">Brainstorming Digital</span>
             </a>
