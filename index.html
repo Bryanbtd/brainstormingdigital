@@ -85,7 +85,7 @@
         /* Header optimizado para móvil */
         @media (max-width: 768px) {
             body {
-                background-color: var(--light); /* Fondo uniforme en móvil */
+                background-color: var(--light);
             }
             
             header {
@@ -95,7 +95,7 @@
             
             /* Menú móvil con mejor contraste */
             .nav-links {
-                background: rgba(10, 36, 99, 0.98) !important; /* Azul más oscuro para mejor contraste */
+                background: rgba(10, 36, 99, 0.98) !important;
                 backdrop-filter: blur(10px);
                 padding: 100px 30px 30px !important;
             }
@@ -108,24 +108,27 @@
             
             /* Logo optimizado para móvil */
             .logo {
-                flex-direction: row !important; /* Mantiene logo y texto en línea */
+                flex-direction: row !important;
                 align-items: center;
+                max-width: 100%;
             }
             
             .logo-img {
-                width: 45px !important; /* Tamaño reducido */
-                height: 45px !important;
-                border: none !important; /* Elimina borde */
-                padding: 0 !important; /* Elimina padding */
-                margin-right: 10px !important; /* Espacio entre logo y texto */
-                background-color: transparent !important; /* Fondo transparente */
-                aspect-ratio: 1/1; /* Mantiene proporción */
-                object-fit: contain; /* Asegura visualización correcta */
+                width: 50px !important;
+                height: 50px !important;
+                border: none !important;
+                padding: 0 !important;
+                margin-right: 10px !important;
+                background-color: transparent !important;
+                aspect-ratio: 1/1;
+                object-fit: contain;
             }
             
             .logo-text {
-                font-size: 16px !important; /* Tamaño óptimo para móvil */
-                white-space: nowrap; /* Evita salto de línea */
+                font-size: 14px !important;
+                white-space: normal;
+                line-height: 1.3;
+                max-width: 120px;
             }
             
             /* Mejora espacio en header móvil */
@@ -135,12 +138,72 @@
             
             /* Mejor contraste en textos */
             body {
-                --text-light: #4b5563; /* Color más oscuro para mejor contraste */
+                --text-light: #4b5563;
             }
             
             /* Subrayado más discreto */
             .hero h1 span:after {
                 height: 8px;
+            }
+
+            /* Corrección para servicios en móvil */
+            .service-card {
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 20px !important;
+            }
+
+            .service-icon {
+                margin: 0 auto 20px !important;
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .service-card h3 {
+                font-size: 20px !important;
+                width: 100%;
+            }
+
+            .service-card p {
+                text-align: center !important;
+                width: 100%;
+                margin-bottom: 20px !important;
+            }
+
+            .service-card .btn {
+                margin: 0 auto !important;
+            }
+
+            /* Corrección para proceso en móvil */
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px !important;
+            }
+
+            .step {
+                width: 100% !important;
+                max-width: 300px;
+                text-align: center !important;
+                flex-direction: column !important;
+            }
+
+            .step-icon {
+                margin: 0 auto 15px !important;
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            .step h3 {
+                font-size: 20px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .step p {
+                text-align: center !important;
+                width: 100%;
             }
         }
 
@@ -256,13 +319,13 @@
 
         /* Logo responsive */
         .logo-img {
-            width: 80px; /* Tamaño para desktop */
+            width: 80px;
             height: 80px;
             object-fit: contain;
             margin-right: 10px;
             transition: var(--transition);
-            background-color: transparent !important; /* Fondo transparente forzado */
-            aspect-ratio: 1/1; /* Mantiene proporción */
+            background-color: transparent !important;
+            aspect-ratio: 1/1;
         }
 
         .logo-text {
@@ -359,7 +422,6 @@
             position: relative;
         }
 
-        /* Subrayado mejorado para móvil */
         .hero h1 span:after {
             content: '';
             position: absolute;
@@ -1031,7 +1093,7 @@
                 right: -100%;
                 width: 280px;
                 height: 100vh;
-                background-color: rgba(10, 36, 99, 0.98) !important; /* Azul más oscuro */
+                background-color: rgba(10, 36, 99, 0.98) !important;
                 flex-direction: column;
                 padding: 100px 30px 30px;
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
@@ -1063,24 +1125,23 @@
                 font-size: 32px;
             }
             
-            .step {
-                width: 100%;
-                display: flex;
-                gap: 20px;
-                text-align: left;
-            }
-            
-            .step-icon {
-                margin: 0;
-                flex-shrink: 0;
-            }
-
             .whatsapp-float {
                 display: flex;
             }
 
             .contact-form {
                 padding: 30px;
+            }
+
+            /* Corrección para botón de contacto en menú móvil */
+            .nav-links a.btn {
+                background-color: var(--secondary) !important;
+                color: white !important;
+                border-radius: var(--border-radius);
+                padding: 12px 20px !important;
+                margin-top: 15px;
+                display: inline-block;
+                width: auto;
             }
         }
 
@@ -1113,6 +1174,14 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            /* Ajuste adicional para pantallas muy pequeñas */
+            @media (max-width: 400px) {
+                .service-card, .step {
+                    padding-left: 10px !important;
+                    padding-right: 10px !important;
+                }
+            }
         }
     </style>
 </head>
@@ -1126,7 +1195,9 @@
                     src="/assets/uploads/1.png" 
                     alt="Brainstorming Digital - Agencia de Marketing" 
                     class="logo-img"
-                    style="background-color: transparent !important;"  <!-- Fuerza transparencia -->
+                    style="background-color: transparent !important;"
+                    width="80"
+                    height="80"
                 >
                 <span class="logo-text">Brainstorming Digital</span>
             </a>
@@ -1474,6 +1545,14 @@
             navLinks.classList.toggle('active');
             this.innerHTML = navLinks.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+            });
         });
 
         // Smooth scrolling optimizado
