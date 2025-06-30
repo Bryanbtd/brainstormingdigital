@@ -108,28 +108,24 @@
             
             /* Logo optimizado para móvil */
             .logo {
-                flex-direction: row !important;
-                align-items: center;
-                max-width: 100%;
-            }
-            
-            .logo-img {
-                width: 50px !important;
-                height: 50px !important;
-                border: none !important;
-                padding: 0 !important;
-                margin-right: 10px !important;
-                background-color: transparent !important;
-                aspect-ratio: 1/1;
-                object-fit: contain;
-            }
-            
-            .logo-text {
-                font-size: 14px !important;
-                white-space: normal;
-                line-height: 1.3;
-                max-width: 120px;
-            }
+        /* Asegura que todo esté en una línea */
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .logo-text {
+        font-size: 18px !important;  /* Tamaño mediano */
+        white-space: nowrap;        /* Texto en una sola línea */
+        margin-left: 8px;           /* Espaciado del icono */
+        display: inline-block;      /* Evita saltos */
+        line-height: 1.2;           /* Altura de línea ajustada */
+    }
+
+    .logo-img {
+        width: 50px !important;     /* Tamaño proporcional */
+        height: 50px !important;
+    }
+}
             
             /* Mejora espacio en header móvil */
             header {
@@ -389,7 +385,7 @@
             display: flex;
             align-items: center;
             padding: 120px 0 80px;
-            background: linear-gradient(135deg, var(--light) 0%, #EFF6FF 100%);
+            background: var(--light) !important; /* Fondo uniforme */;
             position: relative;
             overflow: hidden;
         }
@@ -403,6 +399,7 @@
             height: 200%;
             background: radial-gradient(circle, rgba(62, 146, 204, 0.08) 0%, rgba(255,255,255,0) 70%);
             z-index: 0;
+            display: none; /* Esta línea desactiva completamente el elemento */
         }
 
         .hero-content {
