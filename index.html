@@ -181,36 +181,6 @@
             .service-card .btn {
                 margin: 0 auto !important;
             }
-
-            /* Corrección para proceso en móvil */
-            .process-steps {
-                flex-direction: column;
-                align-items: center;
-                gap: 40px !important;
-            }
-
-            .step {
-                width: 100% !important;
-                max-width: 300px;
-                text-align: center !important;
-                flex-direction: column !important;
-            }
-
-            .step-icon {
-                margin: 0 auto 15px !important;
-                width: 80px !important;
-                height: 80px !important;
-            }
-
-            .step h3 {
-                font-size: 20px !important;
-                margin-bottom: 10px !important;
-            }
-
-            .step p {
-                text-align: center !important;
-                width: 100%;
-            }
         }
 
         h1, h2, h3, h4, h5 {
@@ -591,7 +561,7 @@
             margin-bottom: 25px;
         }
 
-        /* Proceso mejorado para móvil */
+        /* Proceso mejorado - Versión horizontal para desktop */
         .process {
             background-color: #F9FAFB;
             position: relative;
@@ -620,22 +590,50 @@
             flex-wrap: wrap;
         }
 
-        .process-steps:before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            left: 10%;
-            width: 80%;
-            height: 3px;
-            background-color: var(--primary);
-            z-index: 1;
+        /* Línea conectora solo en desktop */
+        @media (min-width: 992px) {
+            .process-steps:before {
+                content: '';
+                position: absolute;
+                top: 50px;
+                left: 10%;
+                width: 80%;
+                height: 3px;
+                background-color: var(--primary);
+                z-index: 1;
+            }
         }
 
         .step {
-            width: 22%;
-            text-align: center;
             position: relative;
             z-index: 2;
+            text-align: center;
+            padding: 0 15px;
+            margin-bottom: 40px;
+        }
+
+        /* Diseño horizontal para desktop */
+        @media (min-width: 992px) {
+            .step {
+                width: 23%;
+                margin-bottom: 0;
+            }
+        }
+
+        /* Diseño para tablets */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .step {
+                width: 48%;
+            }
+        }
+
+        /* Diseño vertical para móviles */
+        @media (max-width: 767px) {
+            .step {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto 40px;
+            }
         }
 
         .step-icon {
@@ -1075,15 +1073,6 @@
         }
 
         @media (max-width: 992px) {
-            .process-steps:before {
-                display: none;
-            }
-            
-            .step {
-                width: 48%;
-                margin-bottom: 40px;
-            }
-
             .hero h1 {
                 font-size: 42px;
             }
