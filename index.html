@@ -684,175 +684,118 @@
             color: var(--text-light);
         }
 
-        /* Testimonios optimizados */
-        .testimonials {
-            background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
-            color: white;
-            padding: 100px 0;
+        /* Sección "¿Por qué Elegirnos?" */
+        .why-us {
+            background: linear-gradient(135deg, #F9FAFB 0%, #f0f4ff 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .testimonials:before {
+        .why-us:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(62, 146, 204, 0.03)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: bottom;
             z-index: 0;
         }
 
-        .testimonials .section-title h2,
-        .testimonials .section-title p {
-            color: white;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonials-grid {
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .benefit-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.03) 0%, rgba(255,255,255,0) 100%);
+            z-index: 0;
+        }
+
+        .benefit-icon {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: var(--transition);
             position: relative;
             z-index: 1;
         }
 
-        .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: var(--border-radius);
-            padding: 40px 30px;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.2) rotate(10deg);
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            background-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 25px;
-            position: relative;
-            padding-left: 30px;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        .testimonial-text:before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -15px;
-            font-size: 60px;
-            color: rgba(255, 255, 255, 0.1);
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            margin-bottom: 5px;
-            color: white;
-            font-weight: 600;
-        }
-
-        .author-info p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-        }
-
-        .rating {
-            color: var(--warning);
-            margin-bottom: 10px;
-        }
-
-        /* Casos de éxito mejorados */
-        .cases {
-            background-color: white;
-        }
-
-        .case-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            text-align: center;
-            padding: 40px 30px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .case-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .case-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            font-size: 32px;
-            transition: var(--transition);
-        }
-
-        .case-card:hover .case-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .case-card h3 {
+        .benefit-card h3 {
             font-size: 22px;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
-        .case-card p {
+        .benefit-card p {
             color: var(--text-light);
-            margin-bottom: 20px;
-            flex-grow: 1;
+            position: relative;
+            z-index: 1;
         }
 
-        .case-result {
-            font-size: 24px;
-            font-weight: 700;
-            margin-top: 15px;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 50px;
-            background-color: rgba(16, 185, 129, 0.1);
-            color: var(--success);
+        .cta-box {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .cta-box p {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--text);
+            position: relative;
+        }
+
+        .cta-box .btn {
+            position: relative;
+            z-index: 1;
         }
 
         /* Formulario de contacto optimizado */
@@ -1138,6 +1081,18 @@
                 font-size: 32px;
             }
             
+            .benefit-card {
+                padding: 30px 20px;
+            }
+            
+            .cta-box {
+                padding: 30px 20px;
+            }
+            
+            .cta-box p {
+                font-size: 18px;
+            }
+            
             .whatsapp-float {
                 display: flex;
             }
@@ -1175,7 +1130,7 @@
                 font-size: 16px;
             }
 
-            .service-card, .case-card {
+            .service-card, .benefit-card {
                 padding: 30px 20px;
             }
 
@@ -1214,7 +1169,7 @@
             <nav class="nav-links">
                 <a href="#services">Servicios</a>
                 <a href="#process">Proceso</a>
-                <a href="#cases">Casos de Éxito</a>
+                <a href="#why-us">¿Por qué Nosotros?</a>
                 <a href="#contact" class="btn btn-secondary">Contacto</a>
             </nav>
             
@@ -1336,119 +1291,73 @@
         </div>
     </section>
 
-    <!-- Testimonios -->
-    <section class="section testimonials" id="testimonials">
+    <!-- ¿Por qué Elegirnos? -->
+    <section class="section why-us" id="why-us">
         <div class="container">
             <div class="section-title animate">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <p>Empresas que han escalado su negocio con nuestras estrategias</p>
+                <h2>¿Por qué Somos Tu Aliado en Performance Marketing?</h2>
+                <p>No somos otra agencia más: somos tu equipo de crecimiento digital</p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate delay-1">
-                    <div class="testimonial-text">
-                        <p>Brainstorming Digital transformó completamente nuestros resultados en Meta Ads. En 3 meses aumentamos nuestras ventas un 150% con la misma inversión.</p>
+            
+            <div class="benefits-grid">
+                <!-- Beneficio 1 -->
+                <div class="benefit-card animate delay-1">
+                    <div class="benefit-icon">
+                        <i class="fas fa-comments"></i>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="assets/testimonial-maria.jpg" alt="María López" loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>María López</h4>
-                            <p>CEO, ModaTrend</p>
-                        </div>
-                    </div>
+                    <h3>"Traducimos" Tus Objetivos a Estrategias que Venden</h3>
+                    <p>No necesitas explicarnos tu negocio en términos técnicos: nuestro equipo interpreta lo que realmente necesitas y lo convertimos en campañas de alto rendimiento.</p>
                 </div>
-                <div class="testimonial-card animate delay-2">
-                    <div class="testimonial-text">
-                        <p>El equipo entendió perfectamente nuestro mercado y creó campañas en TikTok que nos dieron un ROI del 300%. ¡Increíble!</p>
+                
+                <!-- Beneficio 2 -->
+                <div class="benefit-card animate delay-2">
+                    <div class="benefit-icon">
+                        <i class="fas fa-ruler-combined"></i>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="assets/testimonial-carlos.jpg" alt="Carlos Méndez" loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>Carlos Méndez</h4>
-                            <p>Director Marketing, TechSolutions</p>
-                        </div>
-                    </div>
+                    <h3>Estrategias Hechas a Medida, No Recetas Genéricas</h3>
+                    <p>Analizamos a tu competencia para crear ventajas únicas. Cada campaña se construye desde cero para tus metas específicas.</p>
                 </div>
-                <div class="testimonial-card animate delay-3">
-                    <div class="testimonial-text">
-                        <p>Después de trabajar con varias agencias, por fin encontramos profesionales que realmente entienden el performance marketing. Sus reportes son impecables.</p>
+                
+                <!-- Beneficio 3 -->
+                <div class="benefit-card animate delay-1">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    <h3>Inversión Inteligente = Resultados Tangibles</h3>
+                    <p>No gastamos tu presupuesto en 'visibilidad' vacía. Cada peso se asigna a acciones medibles que generan leads calificados o ventas directas.</p>
+                </div>
+                
+                <!-- Beneficio 4 -->
+                <div class="benefit-card animate delay-2">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clipboard-check"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="assets/testimonial-ana.jpg" alt="Ana Rodríguez" loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>Ana Rodríguez</h4>
-                            <p>CMO, Salud360</p>
-                        </div>
+                    <h3>Transparencia Radical con Datos en Tiempo Real</h3>
+                    <p>Olvídate de reportes confusos: te mostramos exactamente cómo cada click se convierte en ROI con dashboards interactivos.</p>
+                </div>
+                
+                <!-- Beneficio 5 -->
+                <div class="benefit-card animate delay-1">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users-cog"></i>
                     </div>
+                    <h3>Equipo Especializado 100% en Performance</h3>
+                    <p>No somos generalistas: nuestro equipo vive y respira SEM. Desde la creación de ads hasta el diseño de landing pages, todo optimizado para conversiones.</p>
+                </div>
+                
+                <!-- Beneficio 6 -->
+                <div class="benefit-card animate delay-2">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Ventaja Adicional: Velocidad de Implementación</h3>
+                    <p>Mientras otras agencias tardan semanas en lanzar campañas, nosotros activamos estrategias de alto impacto en menos de 72 horas.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Casos de éxito -->
-    <section class="section cases" id="cases">
-        <div class="container">
-            <div class="section-title animate">
-                <h2>Casos de Éxito</h2>
-                <p>Resultados reales que hemos generado para nuestros clientes</p>
-            </div>
-            <div class="services-grid">
-                <div class="case-card animate delay-1">
-                    <div class="case-icon" style="background-color: rgba(239, 68, 68, 0.1); color: var(--danger);">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3>E-commerce de Moda</h3>
-                    <p>Incrementamos las ventas un 220% en 4 meses con estrategias combinadas de Meta Ads y Google Shopping.</p>
-                    <div class="case-result">
-                        ROI: 320%
-                    </div>
-                </div>
-                <div class="case-card animate delay-2">
-                    <div class="case-icon" style="background-color: rgba(37, 99, 235, 0.1); color: var(--primary);">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>App Financiera</h3>
-                    <p>Redujimos el costo por instalación en un 40% mientras aumentamos las descargas en un 500%.</p>
-                    <div class="case-result" style="background-color: rgba(37, 99, 235, 0.1); color: var(--primary);">
-                        +50K descargas
-                    </div>
-                </div>
-                <div class="case-card animate delay-3">
-                    <div class="case-icon" style="background-color: rgba(124, 58, 237, 0.1); color: var(--accent);">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Plataforma Educativa</h3>
-                    <p>Generamos 1,200 leads calificados por mes con un costo por lead 60% menor al promedio del mercado.</p>
-                    <div class="case-result" style="background-color: rgba(44, 165, 141, 0.1); color: var(--accent);">
-                        +5K estudiantes
-                    </div>
-                </div>
+            
+            <div class="cta-box animate delay-3">
+                <p>¿Cansado de agencias que solo te dan 'likes'? <strong>Nosotros entregamos ventas.</strong></p>
+                <a href="#contact" class="btn btn-accent btn-wave">📈 Agenda una Auditoría Gratuita</a>
             </div>
         </div>
     </section>
