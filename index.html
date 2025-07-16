@@ -713,6 +713,10 @@
         }
 
         .benefit-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background: white;
             border-radius: var(--border-radius);
             padding: 40px 30px;
@@ -746,6 +750,13 @@
             transition: var(--transition);
             position: relative;
             z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(62, 146, 204, 0.1);
+            border-radius: 50%;
         }
 
         .benefit-card:hover .benefit-icon {
@@ -757,12 +768,14 @@
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
+            width: 100%;
         }
 
         .benefit-card p {
             color: var(--text-light);
             position: relative;
             z-index: 1;
+            width: 100%;
         }
 
         .cta-box {
