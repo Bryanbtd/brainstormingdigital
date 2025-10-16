@@ -856,7 +856,7 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Formulario de contacto - CON MARCOS */
+        /* Formulario de contacto - CORREGIDO PARA NETLIFY */
         .contact-form {
             background-color: var(--white);
             border-radius: var(--border-radius);
@@ -1355,8 +1355,6 @@
         </div>
     </section>
 
-    <!-- Resto del código se mantiene igual... -->
-
     <!-- Servicios -->
     <section class="section" id="services">
         <div class="container">
@@ -1757,7 +1755,7 @@
         </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Contacto - FORMULARIO CORREGIDO -->
     <section class="section" id="contact">
         <div class="container">
             <div class="section-title animate">
@@ -1765,7 +1763,7 @@
                 <p>¿Listo para transformar tu estrategia digital? ¡Hablemos!</p>
             </div>
             <div class="contact-form animate delay-1">
-                <form name="contact" method="POST" netlify data-netlify="true">
+                <form name="contact" method="POST" netlify action="/gracias.html" data-netlify="true">
                     <input type="hidden" name="form-name" value="contact">
                     
                     <!-- Honeypot -->
@@ -2009,27 +2007,11 @@
         initCarousel('.services-carousel');
         initCarousel('.experience-carousel');
 
-        // Form submission
+        // Form submission - CORREGIDO
         const contactForm = document.querySelector('form[name="contact"]');
         if(contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                const submitBtn = this.querySelector('button[type="submit"]');
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-                submitBtn.disabled = true;
-                
-                // Simulate form submission
-                setTimeout(() => {
-                    submitBtn.innerHTML = '¡Mensaje Enviado!';
-                    submitBtn.style.backgroundColor = '#059669';
-                    this.reset();
-                    
-                    setTimeout(() => {
-                        submitBtn.innerHTML = 'Enviar mensaje';
-                        submitBtn.disabled = false;
-                        submitBtn.style.backgroundColor = '';
-                    }, 3000);
-                }, 1500);
-            });
+            // Eliminamos el event listener anterior que interfería con Netlify
+            // Ahora el formulario se enviará directamente a Netlify y redirigirá a gracias.html
         }
 
         // WhatsApp Callout - APARECE DESPUÉS DE 5 SEGUNDOS
@@ -2047,4 +2029,3 @@
     </script>
 </body>
 </html>
-
